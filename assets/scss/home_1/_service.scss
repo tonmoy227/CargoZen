@@ -1,0 +1,210 @@
+.cg-ser1-tab-btn {
+	width: 100%;
+	max-width: 400px;
+	.nav-link.active,  .nav-link {
+		padding: 0;
+		width: 100%;
+	}
+}
+.cg-ser1-content {
+	gap: 30px;
+	margin: 0 auto;
+	display: flex;
+	max-width: 1350px;
+	justify-content: space-between;
+	@media #{$lg,$md,$sm,$xs} {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+.cg-ser-item-icon-text {
+	z-index: 1;
+	width: 100%;
+	display: flex;
+	gap: 15px 25px;
+	padding: 18px 45px;
+	align-items: center;
+	position: relative;
+	border-radius: 12px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid #E1E2E9;
+	transition: 700ms var(--cube-1);
+	&:before {
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 0%;
+		height: 100%;
+		content: '';
+		position: absolute;
+		border-radius: 12px;
+		background-color: var(--cg-pr-c2);
+		transition: 700ms var(--cube-1);
+	}
+	.item-icon {
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		svg {
+			path {
+				fill: var(--cg-pr-c2);
+				transition: 700ms var(--cube-1);
+			}
+		}
+	}
+	.item-text {
+		font-size: 22px;
+		font-weight: 700;
+		color: var(--cg-pr-c1);
+		font-family: var(--cg-heading);
+	}
+}
+.nav-link.active {
+	.cg-ser-item-icon-text {
+		border: 1px solid var(--cg-pr-c2);
+		&:before {
+			width: 100%;
+		}
+		.item-icon {
+			svg {
+				path {
+					fill: #fff;
+				}
+			}
+		}
+	}
+}
+
+.cg-ser1-tab-content {
+	width: 100%;
+	max-width: 850px;
+} 
+.cg-ser1-img-text {
+	@media #{$md,$sm,$xs} {
+		text-align: center;
+	}
+	.item-img {
+		margin-bottom: 20px;
+		display: inline-block;
+		.inner-play {
+			left: 0;
+			top: 50%;
+			right: 0;
+			margin: 0 auto;
+			position: absolute;
+			transform: translateY(-50%);
+			a {
+				color: #fff;
+				width: 95px;
+				height: 95px;
+				display: flex;
+				margin: 0 auto;
+				font-size: 25px;
+				border-radius: 100%;
+				align-items: center;
+				justify-content: center;
+				border: 2px dashed #fff;
+				background-color: var(--cg-pr-c3);
+			}
+		}
+	}
+	.item-text {
+		right: 0;
+		bottom: 0;
+		max-width: 470px;
+		position: absolute;
+		padding: 50px 50px 60px;
+		background-color: var(--cg-pr-c1);
+		clip-path: polygon(92.648% 0.755%, 92.648% 0.755%, 92.526% 0.616%, 92.396% 0.491%, 92.259% 0.379%, 92.116% 0.28%, 91.968% 0.196%, 91.814% 0.126%, 91.657% 0.072%, 91.496% 0.032%, 91.332% 0.008%, 91.166% 0%, 2.105% 0%, 2.105% 0%, 1.764% 0.034%, 1.44% 0.133%, 1.138% 0.291%, 0.862% 0.503%, 0.617% 0.763%, 0.406% 1.067%, 0.235% 1.408%, 0.107% 1.782%, 0.028% 2.183%, 0% 2.606%, 0% 97.394%, 0% 97.394%, 0.028% 97.817%, 0.107% 98.218%, 0.235% 98.592%, 0.406% 98.933%, 0.617% 99.237%, 0.862% 99.497%, 1.138% 99.709%, 1.44% 99.867%, 1.764% 99.966%, 2.105% 100%, 97.895% 100%, 97.895% 100%, 98.236% 99.966%, 98.56% 99.867%, 98.862% 99.709%, 99.138% 99.497%, 99.383% 99.237%, 99.594% 98.933%, 99.765% 98.592%, 99.893% 98.218%, 99.972% 97.817%, 100% 97.394%, 100% 10.859%, 100% 10.859%, 99.993% 10.652%, 99.973% 10.447%, 99.941% 10.246%, 99.895% 10.049%, 99.838% 9.857%, 99.768% 9.671%, 99.687% 9.493%, 99.595% 9.322%, 99.491% 9.161%, 99.377% 9.009%, 92.648% 0.755%);
+		@media #{$xl} {
+			padding: 30px 40px 40px;
+		}
+		@media #{$xs} {
+			padding: 30px 20px 40px;
+		}
+		@media #{$md,$sm,$xs} {
+			margin: 0 auto;
+			position: static;
+			margin-bottom: 30px;
+		}
+		.inner-icon {
+			svg {
+				path {
+					fill: #DF1119;
+				}
+			}
+		}
+		p {
+			color: #D9D9D9;
+			font-weight: 500;
+			padding-bottom: 28px;
+		}
+		li {
+			color: #fff;
+			font-weight: 500;
+			margin-bottom: 8px;
+			font-family: var(--cg-heading);
+			&:last-child {
+				margin-bottom: 0;
+			}
+			i {
+				color: #DF1119;
+				margin-right: 12px;
+			}
+		}
+	}
+	.item-btn-client {
+		right: 0;
+		top: 18px;
+		position: absolute;
+		gap: 15px 50px;
+		@media #{$md,$sm,$xs} {
+			position: static;
+			justify-content: center;
+		}
+		@media #{$xl} {
+			top: 0;
+			gap: 15px;
+			width: 200px;
+			flex-wrap: wrap;
+		}
+		@media #{$xs} {
+			gap: 15px 30px;
+			flex-wrap: wrap;
+		}
+		.cg-btn-1 {
+			span {
+				color: #fff;
+				background-color: var(--cg-pr-c3);
+			}
+		}
+	}
+}
+
+.cg-client-list {
+	ul {
+		display: flex;
+		margin-bottom: 5px;
+	}
+	li {
+		width: 40px;
+		height: 40px;
+		overflow: hidden;
+		margin-left: -15px;
+		border-radius: 100%;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	span {
+		color: #051B05;
+		font-weight: 500;
+	}
+}

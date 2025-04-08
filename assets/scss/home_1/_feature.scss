@@ -1,0 +1,96 @@
+.cg-ft1-item {
+	height: 350px;
+	margin-bottom: 30px;
+	clip-path: polygon(92.648% 0.755%, 92.648% 0.755%, 92.526% 0.616%, 92.396% 0.491%, 92.259% 0.379%, 92.116% 0.28%, 91.968% 0.196%, 91.814% 0.126%, 91.657% 0.072%, 91.496% 0.032%, 91.332% 0.008%, 91.166% 0%, 2.105% 0%, 2.105% 0%, 1.764% 0.034%, 1.44% 0.133%, 1.138% 0.291%, 0.862% 0.503%, 0.617% 0.763%, 0.406% 1.067%, 0.235% 1.408%, 0.107% 1.782%, 0.028% 2.183%, 0% 2.606%, 0% 97.394%, 0% 97.394%, 0.028% 97.817%, 0.107% 98.218%, 0.235% 98.592%, 0.406% 98.933%, 0.617% 99.237%, 0.862% 99.497%, 1.138% 99.709%, 1.44% 99.867%, 1.764% 99.966%, 2.105% 100%, 97.895% 100%, 97.895% 100%, 98.236% 99.966%, 98.56% 99.867%, 98.862% 99.709%, 99.138% 99.497%, 99.383% 99.237%, 99.594% 98.933%, 99.765% 98.592%, 99.893% 98.218%, 99.972% 97.817%, 100% 97.394%, 100% 10.859%, 100% 10.859%, 99.993% 10.652%, 99.973% 10.447%, 99.941% 10.246%, 99.895% 10.049%, 99.838% 9.857%, 99.768% 9.671%, 99.687% 9.493%, 99.595% 9.322%, 99.491% 9.161%, 99.377% 9.009%, 92.648% 0.755%);
+	&:is(.cg-ft-item1) {
+		.item-img {
+			width: 100%;
+			height: 100%;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.item-text {
+			left: 30px;
+			width: 100%;
+			bottom: 30px;
+			max-width: 275px;
+			padding: 20px 25px;
+			border-radius: 10px;
+			position: absolute;
+			background-color: #fff;
+			backdrop-filter: blur(64px);
+			h3 {
+				font-size: 24px;
+				font-weight: 700;
+				padding-bottom: 12px;
+				color: var(--cg-pr-c1);
+			}
+			p {
+				font-weight: 500;
+				line-height: 1.3;
+				color: var(--cg-pr-c1);
+			}
+		}
+	}
+	&:is(.cg-ft-item2) {
+		padding: 50px 50px 30px;
+		background-color: var(--cg-pr-c3);
+		.item-text {
+			height: 100%;
+			flex-direction: column;
+			h3 {
+				color: #fff;
+				font-size: 80px;
+				font-weight: 700;
+				@media #{$lg,$md,$sm,$xs} {
+					font-size: 60px;
+				}
+			}
+			p {
+				color: #fff;
+				font-size: 24px;
+				font-weight: 700;
+				@media #{$lg,$md,$sm,$xs} {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+	&:is(.cg-ft-item3) {
+		background-color: #fff;
+		padding: 50px 34px 20px;
+		.item-text {
+			h3 {
+				font-size: 30px;
+				font-weight: 700;
+				line-height: 1.27;
+				color: var(--cg-title-color);
+				@media #{$lg,$md,$sm,$xs} {
+					font-size: 26px;
+				}
+				span {
+					color: var(--cg-pr-c2);
+				}
+			}
+		}
+		.item-shape {
+			left: 30px;
+			z-index: 1;
+			width: 117px;
+			bottom: 65px;
+			height: 117px;
+			position: absolute;
+			border-radius: 100%;
+			background-color: var(--cg-pr-c2);
+		}
+		.item-img {
+			left: 0;
+			bottom: 0;
+			z-index: 2;
+			position: absolute;
+		}
+	}
+}
