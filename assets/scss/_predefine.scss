@@ -248,6 +248,7 @@ select:visited {
 		line-height: 1;
 		font-size: 55px;
 		font-weight: 700;
+		letter-spacing: -1px;
 		color: var(--cg-title-color);
 		@media #{$sm,$xs} {
 			font-size: 40px;
@@ -260,13 +261,15 @@ select:visited {
 		}
 	}
 	p {
-		margin: 0 auto;
 		max-width: 620px;
 		padding-top: 18px;
 	}
 	&.text-center {
 		margin: 0 auto;
 		max-width: 630px;
+		p {
+			margin: 0 auto;
+		}
 	}
 }
 // txa-common-css-start

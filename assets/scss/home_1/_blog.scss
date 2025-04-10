@@ -1,0 +1,132 @@
+.cg-blog1-top-content {
+	gap: 20px 30px;
+	.cg-sec-title {
+		max-width: 555px;
+	}
+	.cg-btn-1 {
+		a {
+			span {
+				color: #fff;
+				background-color: var(--cg-pr-c3);
+				i {
+					color: var(--cg-pr-c3);
+				}
+			}
+		}
+	}
+}
+
+.cg-blog1-item {
+	overflow: hidden;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	background-color: #fff;
+	.blg-tag {
+		top: 13px;
+		left: 13px;
+		position: absolute;
+		a {
+			color: #fff;
+			font-size: 12px;
+			font-weight: 700;
+			padding: 6px 15px;
+			border-radius: 6px;
+			text-transform: uppercase;
+			background-color: var(--cg-pr-c2);
+			i {
+				margin-right: 3px;
+			}
+		}
+	}
+	.item-meta {
+		left: 22px;
+		color: #fff;
+		width: 86px;
+		height: 76px;
+		bottom: -10px;
+		padding-top: 10px;
+		border-radius: 4px;
+		position: absolute;
+		font-family: var(--cg-heading);
+		background-color: var(--cg-pr-c3);
+		&:before {
+			left: 50%;
+			content: "";
+			bottom: -10px;
+			position: absolute;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 15px solid var(--cg-pr-c3);
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+		}
+		span {
+			line-height: 1;
+			font-size: 28px;
+			font-weight: 700;
+			padding-bottom: 5px;
+		}
+		p {
+			line-height: 1;
+		}
+	}
+	.item-text {
+		padding: 40px 30px 30px; 
+		.blog_title {
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 1.167;
+			padding-bottom: 15px;
+			color: var(--cg-pr-c1);
+		}
+		.blog_more {
+			font-weight: 700;
+			position: relative;
+			color: var(--cg-pr-c3);
+			i {
+				margin-left: 5px;
+				transform: rotate(-45deg);
+			}
+			&:before {
+				left: 0;
+				bottom: 2px;
+				width: 80%;
+				height: 1px;
+				content: '';
+				position: absolute;
+				background-color: var(--cg-pr-c3);
+			}
+		}
+		.blog-author {
+			gap: 5px 15px;
+			flex-wrap: wrap;
+			position: relative;
+			padding: 10px 25px;
+			border-radius: 50px;
+			border: 1px solid #EEEEEE;
+			@media #{$lg,$xxs}{
+				border-radius: 0;
+			}
+			&:before {
+				left: 50%;
+				top: 22px;
+				width: 5px;
+				height: 5px;
+				content: '';
+				position: absolute;
+				border-radius: 100%;
+				transform: translateX(-50%);
+				background-color: var(--cg-pr-c3);
+				@media #{$xl,$lg,$md,$sm,$xs}{
+					display: none;
+				}
+			}
+			a {
+				font-weight: 500;
+				i {
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}

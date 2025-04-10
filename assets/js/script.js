@@ -161,12 +161,30 @@ Last change:    00/00/00
 		pauseOnHover: true,
 		startVisible:true,
 	});
+	$('.marquee-right').marquee({
+		gap: 0,
+		speed: 60,
+		delayBeforeStart: 0,
+		direction: 'right',
+		duplicated: true,
+		pauseOnHover: true,
+		startVisible:true,
+	});
 	// Background Image
 	$('[data-background]').each(function() {
 		$(this).css('background-image', 'url('+ $(this).attr('data-background') + ')');
 	});
 
-
+	var ltn__active_item = $('.cg-team1-list li')
+	ltn__active_item.mouseover(function() {
+		ltn__active_item.removeClass('active');
+		$(this).addClass('active');
+	});
+	var ltn__active_item_1 = $('.item-pin-wrap')
+	ltn__active_item_1.mouseover(function() {
+		ltn__active_item_1.removeClass('active');
+		$(this).addClass('active');
+	});
 	// windows-loaded-before-functions
 	document.addEventListener("DOMContentLoaded", function () {
 		window.addEventListener('load', function(){
@@ -229,6 +247,81 @@ Last change:    00/00/00
 			}, 700);
 		})
 	});
+	if($(".cg-cta1-card-slide").length) {
+		var swiper3 = new Swiper(".cg-cta1-card-slide", {
+			speed: 1000,
+			loop: true,
+			spaceBetween: 20,
+			navigation: {
+				nextEl: ".cg-cta1-next",
+				prevEl: ".cg-cta1-prev",
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+				},
+				576: {
+					slidesPerView: 2,
+				},
+				768: {
+					slidesPerView: 3,
+				},
+				992: {
+					slidesPerView: 3,
+				},
+				1200: {
+					slidesPerView: 3,
+				},
+				1400: {
+					slidesPerView: 3,
+				},
+				1600: {
+					slidesPerView: 3,
+				},
+			},
 
-	
+		});
+	}
+
+	// Testimonial Slide 4
+	if($(".cg-testi-slider").length) {
+		const swiper = new Swiper(".cg-testi-slider" , {
+			speed: 500,
+			spaceBetween: 30,
+			loop: true,
+			autoplay:  {
+				delay: 5000,
+			},
+			pagination: {
+				el: ".cg-testi-pagi",
+				clickable: true,
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+				},
+				576: {
+					slidesPerView: 1,
+				},
+				768: {
+					slidesPerView: 1,
+				},
+				992: {
+					slidesPerView: 1,
+				},
+				1200: {
+					slidesPerView: 3,
+				},
+				1400: {
+					slidesPerView: 3,
+				},
+				1600: {
+					slidesPerView: 3,
+				},
+				1800: {
+					slidesPerView: 4,
+				},
+			},
+		})
+	}
 })(jQuery);

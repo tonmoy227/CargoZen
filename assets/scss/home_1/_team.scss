@@ -1,0 +1,119 @@
+.cg-team1-sec {
+	overflow: hidden;
+	background-color: var(--cg-pr-c1);
+}
+.cg-team1-top-content {
+	gap: 20px 30px;
+	.cg-sec-title {
+		max-width: 580px;
+		.sec_title {
+			color: #fff;
+		}
+	}
+}
+.cg-team1-content {
+	display: flex;
+	gap: 30px 40px;
+	justify-content: space-between;
+	@media #{$md,$sm,$xs} {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+.cg-team1-s-img {
+	width: 100%;
+	max-width: 500px;
+	mask-size: cover;
+	mask-position: bottom bottom;
+	mask-image: url(../img/shape/shape5.svg);
+	@media #{$lg} {
+		max-width: 380px;
+	}
+}
+.cg-team1-list {
+	width: 100%;
+	max-width: 800px;
+	li {
+		border-bottom: 1px solid #043446;
+		a {
+			gap: 20px;
+			display: flex;
+			align-items: center;
+			padding: 18px 60px 18px 0px;
+			justify-content: space-between;
+			@media #{$lg,$md,$sm,$xs} {
+				padding: 18px 0px 18px 0px;
+			}
+			@media #{$xs} {
+				flex-wrap: wrap;
+			}
+			.item-arrow {
+				width: 54px;
+				height: 54px;
+				display: flex;
+				align-items: center;
+				border-radius: 100%;
+				justify-content: center;
+				background-color: #E1F7FF;
+				transition: all 500ms ease-in-out;
+				i {
+					transform: rotate(-45deg);
+					transition: all 500ms ease-in-out;
+				}
+			}
+			.item-text {
+				gap: 15px 20px;
+				@media #{$xs} {
+					flex-wrap: wrap;
+				}
+				.item-icon {
+					width: 0;
+					opacity: 0;
+					transition: all 500ms ease-in-out;
+				}
+				h3 {
+					color: #fff;
+					font-size: 32px;
+					font-weight: 700;
+					text-transform: capitalize;
+					transition: all 500ms ease-in-out;
+					span {
+						font-size: 20px;
+						font-weight: 500;
+					}
+				}
+			}
+		}
+		&:is(.active) {
+			a {
+				.item-arrow {
+					background-color: var(--cg-pr-c2);
+					i {
+						color: #fff;
+					}
+				}
+				.item-text { 
+					.item-icon { 
+						opacity: 1;
+						width: 40px;
+					}
+					h3 {
+						color: var(--cg-pr-c2);
+					}
+				}
+			}
+		}
+	}
+}
+.cg-text-scroller3 {
+	display: flow-root;
+	padding: 25px 0px;
+	background-color: var(--cg-pr-c3);
+	h3 {
+		color: #fff;
+		font-size: 24px;
+		margin: 0px 15px;
+		font-weight: 700;
+		display: inline-block;
+	}
+}
