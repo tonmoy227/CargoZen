@@ -185,6 +185,20 @@ Last change:    00/00/00
 		ltn__active_item_1.removeClass('active');
 		$(this).addClass('active');
 	});
+	if($('.cg-split-1').length) {
+		var txtSplit = $('.cg-split-1');
+		if(txtSplit.length == 0) return; gsap.registerPlugin(SplitText); txtSplit.each(function(index, el) {
+			el.split = new SplitText(el, { 
+				type: "words",
+				wordsClass: "split-word"
+			});
+		});
+	}
+	// counter-activation
+	$('.counter').counterUp({
+		delay: 10,
+		time: 5000
+	});
 	// windows-loaded-before-functions
 	document.addEventListener("DOMContentLoaded", function () {
 		window.addEventListener('load', function(){
@@ -235,9 +249,9 @@ Last change:    00/00/00
 						fadeEffect: {
 							crossFade: true
 						},
-						// autoplay: {
-						// 	delay: 6000,
-						// },
+						autoplay: {
+							delay: 6000,
+						},
 						thumbs: {
 							swiper: swiper3,
 						},
@@ -324,4 +338,284 @@ Last change:    00/00/00
 			},
 		})
 	}
+
+	if($('.cg-sub-tilte').length) {
+		var agtsub = $(".cg-sub-tilte");
+
+		if(agtsub.length == 0) return; gsap.registerPlugin(SplitText); agtsub.each(function(index, el) {
+			
+			el.split = new SplitText(el, { 
+				type: "lines,words,chars",
+				linesClass: "split-line"
+			});
+			
+			if( $(el).hasClass('cg-sub-anim') ){
+				gsap.set(el.split.chars, {
+					opacity: 0,
+					y: "-7",
+				});
+			}
+			
+			el.anim = gsap.to(el.split.chars, {
+				scrollTrigger: {
+					trigger: el,
+					start: "top 90%",
+					end: "top 60%",
+					markers: false,
+					scrub: 1,
+				},
+
+				x: "0",
+				y: "0",
+				opacity: 1,
+				duration: .7,
+				stagger: 0.2,
+			});
+			
+		});
+	}
+	if($('.cg-sec-title').length) {
+		var edtitle = $(".cg-sec-title");
+
+		if(edtitle.length == 0) return; gsap.registerPlugin(SplitText); edtitle.each(function(index, el) {
+
+			el.split = new SplitText(el, { 
+				type: "lines",
+				linesClass: "split-line"
+			});
+
+			if( $(el).hasClass('cg-has-anim') ){
+				gsap.set(el.split.lines, {
+					opacity: .3,
+					y: "100",
+				});
+			};
+			el.anim = gsap.to(el.split.lines, {
+				scrollTrigger: {
+					trigger: el,
+					start: "top 90%",
+					markers: false
+				},
+
+				x: "0",
+				y: "0",
+				opacity: 1,
+				duration: .4,
+				stagger: 0.15,
+			});
+
+
+		});
+	}
+	// Animation
+	gsap.utils.toArray(' .cg-top-bottom').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 3,
+				start: "top 50%",
+				end: "top -100%",
+				toggleActions: "play reverse none reverse",
+				markers: false,
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'top top'})
+		.fromTo(el, { y: -400}, { y: 300, duration: 1})
+	});
+	gsap.utils.toArray(' .top_view').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top 100%",
+				start: "top 100%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 1, scale: 1, y: "100"}, {opacity: 1, y: 0, duration: 1, immediateRender: false})
+	});
+	gsap.utils.toArray(' .left_view').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top 50%",
+				start: "top 100%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 1, scale: .5, x: "-200"}, {opacity: 1, y: 0, duration: 1, immediateRender: false})
+	});
+	gsap.utils.toArray(' .circle_top').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top 50%",
+				start: "top 100%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 0, scale: 0, y: "100"}, {opacity: 1, y: 0, duration: 1, immediateRender: false})
+	});
+	gsap.utils.toArray(' .plane_land').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top 20%",
+				start: "top 100%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 0, scale: 0, rotate: "-90deg", x: "-300"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
+	});
+	gsap.utils.toArray(' .ship_land').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top -70%",
+				start: "top 10%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 0, scale: 1,  y: "-500"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
+	});
+	gsap.utils.toArray(' .contain_land').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top -70%",
+				start: "top 10%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 0, scale: 1,  y: "-300"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
+	});
+
+
+	//
+
+	var CgSteps = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".cg-step1-sec",
+			start: "top 70%",
+			toggleActions: "play reverse play reverse",
+			markers: false,
+		},
+		defaults: {
+			duration: 1,
+		},
+	})
+
+	CgSteps
+	.from(".col-lg-4:nth-of-type(1) .cg-step1-item", {
+		xPercent: 100
+	})
+	.from(".col-lg-4:nth-of-type(3) .cg-step1-item", {
+		xPercent: -100
+	},"<")
+	//
+	gsap.utils.toArray(".img-parallax").forEach(function(container) {
+		let image = container.querySelector("img");
+
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: container,
+				scrub: true,
+				pin: false,
+			},
+		}); 
+		tl.from(image, {
+			yPercent: -30,
+			ease: "none",
+		}).to(image, {
+			yPercent: 30,
+			ease: "none",
+		}); 
+	});
+	//
+	var cgmappin = gsap.timeline({
+
+		scrollTrigger: {
+			animation: cgmappin,
+			trigger: '.cg-map-pin-sec',
+			start: "top 100%",
+			end: "bottom 30%",
+			scrub: 2,
+			toggleActions: "play reverse play reverse",
+			markers: false
+		}
+	});
+
+	cgmappin.from( ".cg-m-item1" , { rotateZ: -200,  duration:1 }, ">" )
+	cgmappin.from( ".cg-m-item2" , { rotateZ: 200,  duration:1 },"<" )
+	cgmappin.from( ".cg-m-item3" , { rotateZ: -200,  duration:1 } )
+//
+	if(window.innerWidth> 991){
+		let proSroll = gsap.timeline();
+		let otherSections_2 = document.querySelectorAll('.cg_sticky_item')
+		otherSections_2.forEach((section, index) => {
+			gsap.set(otherSections_2, {
+				scale: 1 
+			});
+			proSroll.to(section, {
+				scale: index === otherSections_2.length - 1 ? 1 : .8,
+				scrollTrigger: {
+					trigger: section,
+					pin: section,
+					scrub: 1,
+					start: 'top 5%',
+					end: "bottom 70%",
+					ease: "none",
+					endTrigger: '.cg-pro1-content',
+					pinSpacing: false,
+					markers: false,
+				},
+			})
+		});
+	};
+	// if (window.matchMedia("(min-width: 991px)").matches) { 
+	// 	var Hero_pin = document.querySelectorAll(".cg-pro1-text-wrap")
+	// 	Hero_pin.forEach((item) => {
+	// 		gsap.to(item, {
+	// 			scrollTrigger: {
+	// 				trigger: item,
+	// 				markers: false,
+	// 				pin: true,
+	// 				pinSpacing: false,
+	// 				start: "top 15%",
+	// 				end: "bottom 80%",
+	// 			},
+	// 		});
+	// 	});
+	// }
 })(jQuery);

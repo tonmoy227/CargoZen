@@ -1,7 +1,7 @@
 .cg-hero1-sec {
-	padding: 100px 58px 0px;
+	padding: 75px 58px 0px;
 	@media screen and (max-width: 1800px) {
-		padding: 100px 15px 0px;
+		padding: 75px 15px 0px;
 	}
 	@media #{$xl,$lg,$md,$sm,$xs} {
 		padding: 0;
@@ -78,9 +78,12 @@
 		padding: 180px 0px 100px;
 	}
 	.hero-slug {
+		opacity: 0;
 		color: #fff;
 		margin-bottom: 15px;
 		font-family: var(--cg-font2);
+		transform: translateX(30px);
+		transition:  2s cubic-bezier(.4,-.5,.1,1.48);
 	}
 	.hero_title {
 		color: #fff;
@@ -100,12 +103,32 @@
 		span {
 			font-weight: 400;
 		}
+		.split-word{
+			opacity: 0;
+			overflow: hidden;
+			padding-bottom: 8px;
+			transform-origin: bottom;
+			transform: translateY(0) scaleY(-0);
+			transition:  .8s cubic-bezier(.4,-.5,.1,1.48);
+
+		}
 	} 
 	p {
+		opacity: 0;
 		color: #fff;
 		font-size: 18px;
 		max-width: 500px;
+		visibility: hidden;
 		margin-bottom: 38px;
+		transform: translateY(30px);
+		transition:  1200ms cubic-bezier(0.61, -0.63, 0.46, 1.48);
+	}
+	.cg-btn-1 {
+		opacity: 0;
+		visibility: hidden;
+		transform: scaleY(0);
+		transform-origin: bottom;
+		transition:  1200ms cubic-bezier(0.61, -0.63, 0.46, 1.48);
 	}
 }
 .cg-hr1-item {
@@ -115,12 +138,17 @@
 		top: 20px;
 		left: 140px;
 		z-index: -1;
+		transition: all 1200ms ease-in-out;
+		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 	}
 	.hr1-plane {
-		left: -45px;
+		left: -140px;
 		z-index: -1;
-		bottom: 15px;
+		bottom: -30px;
 		opacity: 0.2;
+		transform: rotate(-100deg);
+		transition: all 1200ms ease-in-out;
+
 	}
 	.item-img {
 		width: 100%;
@@ -140,10 +168,15 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			filter: blur(108px);
+			transform-origin: bottom;
+			transform: scaleY(150%);
+			transition: filter 1s cubic-bezier(0.4, 0, 0.2, 1), transform  1s cubic-bezier(.4,-.2,.1,0.48);
 		}
 		&:before {
 			top: 0;
 			left: 0;
+			z-index: 1;
 			width: 100%;
 			height: 100%;
 			content: '';
@@ -173,8 +206,12 @@
 		display: none !important;
 	}
 	.hr1-bottom-img {
+		opacity: 0;
 		margin-top: 65px;
+		visibility: hidden;
 		position: relative;
+		transform: translateX(100px);
+		transition:  1200ms cubic-bezier(0.61, -0.63, 0.46, 1.48);
 		@media #{$lg,$md,$sm,$xs} {
 			width: 75%;
 		}
@@ -197,13 +234,17 @@
 	}
 }
 .hr1-bottom-list {
+	opacity: 0;
 	z-index: 1;
 	width: 380px;
 	height: 308px;
 	gap: 20px 30px;
-	position: relative;
 	margin-top: -70px;
+	position: relative;
 	padding-left: 40px;
+	visibility: hidden;
+	transform: translateX(-50px);
+	transition:  1200ms cubic-bezier(0.61, -0.63, 0.46, 1.48);
 	@media #{$xxl,$xl,$lg,$md,$sm,$xs} {
 		gap: 20px 15px;
 		padding-left: 15px;
@@ -249,6 +290,86 @@
 		}
 		i {
 			margin-right: 8px;
+		}
+	}
+}
+
+.swiper-slide:is(.swiper-slide-active) { 
+	.cg-hr1-item {
+		.hr1-shape1 {
+			clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+			transition-delay: 1000ms;
+		}
+		.hr1-plane { 
+			left: -55px;
+			bottom: 45px;
+			transform: rotate(0deg);
+			transition-delay: 1300ms;
+		}
+		.item-img {
+			img {
+				transform: scaleX(100%);
+				filter: blur(0px);
+			}
+		}
+		.hero-text1 {
+			.hero-slug {
+				opacity: 1;
+				visibility: visible;
+				transform: translateX(0px);
+			} 
+			.hero_title {
+				.split-word {
+					transform: translateY(0%) scaleX(1);
+					opacity: 1;
+					transition-delay: 0.3s;
+					&:nth-child(2) {
+						transition-delay: 0.4s;
+					}
+					&:nth-child(3) {
+						transition-delay: .5s;
+					}
+					&:nth-child(4) {
+						transition-delay: .6s;
+					}
+					&:nth-child(5) {
+						transition-delay: .7s;
+					}
+					&:nth-child(6) {
+						transition-delay: .8s;
+					}
+					&:nth-child(7) {
+						transition-delay: .9s;
+					}
+					&:nth-child(8) {
+						transition-delay: 1s;
+					}
+				}
+			}
+			p {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0px);
+			}
+			.cg-btn-1 {
+				opacity: 1;
+				visibility: visible;
+				transform: scaleY(1);
+			}
+		}
+		.hr1-bottom-area { 
+			.hr1-bottom-img {
+				opacity: 1;
+				visibility: visible;
+				transition-delay: 300ms;
+				transform: translateX(0px);
+			}
+			.hr1-bottom-list {
+				opacity: 1;
+				visibility: visible;
+				transition-delay: 400ms;
+				transform: translateX(0px);
+			}
 		}
 	}
 }

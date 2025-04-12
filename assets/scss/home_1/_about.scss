@@ -1,3 +1,25 @@
+@keyframes hithere {
+	30% {
+		-webkit-transform: scale(1.2);
+		transform: scale(1.2);
+	}
+	40%, 60% {
+		-webkit-transform: rotate(-20deg) scale(1.2);
+		transform: rotate(-20deg) scale(1.2);
+	}
+	50% {
+		-webkit-transform: rotate(20deg) scale(1.2);
+		transform: rotate(20deg) scale(1.2);
+	}
+	70% {
+		-webkit-transform: rotate(0deg) scale(1.2);
+		transform: rotate(0deg) scale(1.2);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
 .cg-ab1-sec {
 	overflow: hidden;
 	.cg-ab1-bg {
@@ -53,6 +75,11 @@
 		line-height: 1.2;
 		max-width: 155px;
 		color: var(--cg-pr-c1);
+	}
+	&:hover {
+		.item-icon {
+			animation: hithere 1s ease infinite;
+		}
 	}
 }
 .cg-ab1-ftr {

@@ -10,6 +10,7 @@
 		&:before {
 			top: 0;
 			left: 0;
+			z-index: 1;
 			width: 100%;
 			height: 100%;
 			content: "";
@@ -75,6 +76,7 @@
 			align-items: center;
 			justify-content: center;
 			background-color: var(--cg-pr-c3);
+			animation: swing 2s ease infinite;
 		}
 	}
 }
@@ -149,8 +151,12 @@
 		margin-top: 30px;
 		border-radius: 8px;
 		padding: 16px 15px;
-		background-color: var(--cg-pr-c2);
 		text-transform: capitalize;
+		transition: all 500ms ease-in-out;
+		background-color: var(--cg-pr-c2);
+		&:hover {
+			background-color: var(--cg-pr-c3);
+		}
 	}
 }
 .cg-product-mesurment-checkbox {

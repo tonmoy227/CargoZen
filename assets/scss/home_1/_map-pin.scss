@@ -1,3 +1,33 @@
+@keyframes icon-bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	40% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+	60% {
+		-webkit-transform: translateY(-5px);
+		transform: translateY(-5px);
+	}
+}
+@keyframes borderpls {
+	0% {
+		-webkit-box-shadow: 0 0 0 0 #0195F7;
+		box-shadow: 0 0 0 0 #0195F7;
+	}
+	70% {
+		-webkit-box-shadow: 0 0 0 10px #0195F7;
+		box-shadow: 0 0 0 10px #0195F7;
+		opacity: 0;
+	}
+	to {
+		-webkit-box-shadow: 0 0 0 0 #0195F7;
+		box-shadow: 0 0 0 0 #0195F7;
+		opacity: 0;
+	}
+}
 .cg-map-pin-sec {
 	overflow: hidden;
 }
@@ -228,6 +258,7 @@
 			position: absolute;
 			border-radius: 100%;
 			background-color: #0195F7;
+			animation: borderpls 1.5s infinite cubic-bezier(0.4, 0, 1, 1) both;
 		}
 		i {
 			width: 5px;
@@ -251,6 +282,7 @@
 		border-radius: 30px;
 		visibility: hidden;
 		background-color: var(--cg-pr-c3);
+		animation: icon-bounce 1s ease-out infinite;
 		transition: 400ms cubic-bezier(.57,.21,.69,1.25);
 		@media #{$xxs} {
 			display: none;
