@@ -23,6 +23,7 @@
 		&:before {
 			top: 0;
 			left: 0;
+			z-index: 1;
 			width: 100%;
 			height: 100%;
 			content: '';
@@ -35,6 +36,10 @@
 			height: 100%;
 			object-fit: cover;
 		}
+	}
+	.cg-pro-plane {
+		left: -75px;
+		bottom: 40px;
 	}
 }
 .cg-pro1-text-wrap {
@@ -58,6 +63,7 @@
 	}
 }
 .cg-pro1-ship {
+	margin-top: 200px;
 	position: relative;
 	display: inline-block;
 	@media #{$md,$sm,$xs }{

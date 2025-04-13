@@ -407,6 +407,44 @@ Last change:    00/00/00
 
 		});
 	}
+	if($(".cg-sub-head").length) {
+		var tzSplit = $(".cg-sub-head");
+		if(tzSplit.length == 0) return; gsap.registerPlugin(SplitText); tzSplit.each(function(index, el) {
+
+			el.split = new SplitText(el, { 
+				type: "lines,words,chars",
+				linesClass: "split-line",
+			});
+
+			let delayValue = $(el).attr("data-split-delay") || "0s";
+			delayValue = parseFloat(delayValue) || 0; 
+
+			if( $(el).hasClass('cg-sub-head') ){
+				gsap.set(el.split.chars, {
+					yPercent: 100 , 
+				});
+			}
+
+			el.anim = gsap.to(el.split.chars, {
+				scrollTrigger: {
+					trigger: el,
+					start: "top 86%",
+					toggleActions: 'play none none reverse',
+				},
+				opacity: 1,
+				yPercent: 0,
+				xPercent: 0,
+				duration: .8,
+				ease: "back.out(2)",
+				stagger: {
+					amount: .7, 
+					from: "random", 
+				},
+				delay: delayValue, 
+			});
+
+		});
+	}
 	// Animation
 	gsap.utils.toArray(' .cg-top-bottom').forEach((el, index) => { 
 		let tlcta = gsap.timeline({
@@ -488,6 +526,22 @@ Last change:    00/00/00
 		.set(el, {transformOrigin: 'center center'})
 		.from(el, { opacity: 0, scale: 0, rotate: "-90deg", x: "-300"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
 	});
+	gsap.utils.toArray(' .plane_land_2').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top 20%",
+				start: "top 100%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 0, scale: 0, rotate: "90deg", x: "-300"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
+	});
 	gsap.utils.toArray(' .ship_land').forEach((el, index) => { 
 		let tlcta = gsap.timeline({
 			scrollTrigger: {
@@ -520,8 +574,58 @@ Last change:    00/00/00
 		.set(el, {transformOrigin: 'center center'})
 		.from(el, { opacity: 0, scale: 1,  y: "-300"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
 	});
+	gsap.utils.toArray(' .contain_land_2').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top 10%",
+				start: "top 80%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'top top'})
+		.from(el, { opacity: 0, scaleY: 0,  y: "-20"}, {opacity: 1, y: 0, scaleY: 1, duration: 1, immediateRender: false})
+	});
+	$('.bi-btn-hover').on('mouseenter', function (e) {
+		var x = e.pageX - $(this).offset().left;
+		var y = e.pageY - $(this).offset().top;
+
+		$(this).find('b').css({
+			top: y,
+			left: x
+		});
+	});
+	$('.bi-btn-hover').on('mouseout', function (e) {
+		var x = e.pageX - $(this).offset().left;
+		var y = e.pageY - $(this).offset().top;
+
+		$(this).find('b').css({
+			top: y,
+			left: x
+		});
+	});
+	const all_btns = gsap.utils.toArray(".bi-btn-area");
+	if (all_btns.length > 0) {
+		var all_btn = gsap.utils.toArray(".bi-btn-area");
 
 
+		const all_btn_cirlce = gsap.utils.toArray(".bi-btn-item");
+		all_btn.forEach((btn, i) => {
+
+			$(btn).mouseleave(function (e) {
+				gsap.to(all_btn_cirlce[i], 0.5, {
+					x: 0,
+					y: 0,
+					ease: Power2.easeOut,
+				});
+			});
+		});
+		let arr2 = gsap.utils.toArray(".bi-btn-area");
+	};
 	//
 
 	var CgSteps = gsap.timeline({
@@ -603,19 +707,44 @@ Last change:    00/00/00
 			})
 		});
 	};
-	// if (window.matchMedia("(min-width: 991px)").matches) { 
-	// 	var Hero_pin = document.querySelectorAll(".cg-pro1-text-wrap")
-	// 	Hero_pin.forEach((item) => {
-	// 		gsap.to(item, {
-	// 			scrollTrigger: {
-	// 				trigger: item,
-	// 				markers: false,
-	// 				pin: true,
-	// 				pinSpacing: false,
-	// 				start: "top 15%",
-	// 				end: "bottom 80%",
-	// 			},
-	// 		});
-	// 	});
-	// }
+	if($(".bottom-text").length) {
+		var aniTitle1 = $(".bottom-text");
+		if(aniTitle1.length == 0) return; gsap.registerPlugin(SplitText); aniTitle1.each(function(index, el) {
+
+			el.split = new SplitText(el, { 
+				type: "lines,words,chars",
+				linesClass: "split-line"
+			});
+
+			gsap.set(el, { perspective: 400 });
+
+			if( $(el).hasClass('bottom-text') ){
+				gsap.set(el.split.chars, {
+					yPercent: 100,
+					opacity: 0,
+
+				});
+			}
+
+			el.anim = gsap.to(el.split.chars, {
+				scrollTrigger: {
+					trigger: el,
+					start: "top 90%",
+					toggleActions: "play reverse play reverse",
+					markers: false,
+
+				},
+
+				yPercent: 0,
+				xPercent: 0,
+				opacity: 1,
+				duration: 2,
+				stagger: .1,
+				ease: "bounce.out",
+					// yoyo: true, 
+					// repeat: -1,
+			});
+
+		});
+	}
 })(jQuery);

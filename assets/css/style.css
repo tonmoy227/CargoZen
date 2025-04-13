@@ -1292,8 +1292,10 @@ select:visited {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   font-weight: 600;
   text-align: center;
+  position: relative;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1305,6 +1307,27 @@ select:visited {
 }
 .cg-circle-btn a span {
   display: block;
+}
+
+.bi-btn-main b {
+  position: absolute;
+  content: "";
+  width: 0px;
+  height: 0px;
+  left: 0;
+  top: 0;
+  background-color: var(--cg-pr-c2);
+  z-index: -1;
+  border-radius: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.bi-btn-main:hover b {
+  width: 350px;
+  height: 350px;
 }
 
 .mt-5 {
@@ -4770,6 +4793,10 @@ select:visited {
 .cg-map-pin-sec {
   overflow: hidden;
 }
+.cg-map-pin-sec .cg-mp-shape {
+  left: -90px;
+  bottom: 65px;
+}
 
 .cg-map-pin-content {
   gap: 40px;
@@ -5133,6 +5160,7 @@ select:visited {
 .cg-pro1-content .cg-pro-bg:before {
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   content: "";
@@ -5145,6 +5173,10 @@ select:visited {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.cg-pro1-content .cg-pro-plane {
+  left: -75px;
+  bottom: 40px;
 }
 
 .cg-pro1-text-wrap {
@@ -5173,6 +5205,7 @@ select:visited {
 }
 
 .cg-pro1-ship {
+  margin-top: 200px;
   position: relative;
   display: inline-block;
 }
@@ -5751,6 +5784,42 @@ select:visited {
 /*---------------------------------------------------- */
 /*Contact-cta Section*/
 /*----------------------------------------------------*/
+@-webkit-keyframes zoomRotate {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: scale(1.12) rotate(30deg);
+            transform: scale(1.12) rotate(30deg);
+  }
+  75% {
+    -webkit-transform: scale(1) rotate(-30deg);
+            transform: scale(1) rotate(-30deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+}
+@keyframes zoomRotate {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: scale(1.12) rotate(30deg);
+            transform: scale(1.12) rotate(30deg);
+  }
+  75% {
+    -webkit-transform: scale(1) rotate(-30deg);
+            transform: scale(1) rotate(-30deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+}
 .cg-footer1-sec {
   background-color: var(--cg-pr-c1);
 }
@@ -5778,8 +5847,11 @@ select:visited {
   left: 0;
   right: 0;
   top: -25px;
+  z-index: 2;
   margin: 0 auto;
   position: absolute;
+  -webkit-animation: zoomRotate 2s infinite ease-in-out;
+          animation: zoomRotate 2s infinite ease-in-out;
 }
 @media (max-width: 767px) {
   .cg-cta-tag {
@@ -5963,11 +6035,16 @@ select:visited {
   font-weight: 700;
   border-radius: 6px;
   padding: 14px 24px;
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
   background-color: var(--cg-pr-c2);
 }
 .cg-ftr1-widget .newslatter-widget form button i {
   font-size: 14px;
   margin-left: 5px;
+}
+.cg-ftr1-widget .newslatter-widget form button:hover {
+  background-color: var(--cg-pr-c3);
 }
 .cg-ftr1-widget .newslatter-widget p {
   color: rgba(255, 255, 255, 0.5490196078);
@@ -5999,6 +6076,11 @@ select:visited {
   color: #D9D9D9;
   font-weight: 500;
 }
+.cg-ftr1-widget .menu-widget li a:hover {
+  -webkit-transform: translateX(6px);
+          transform: translateX(6px);
+  color: var(--cg-pr-c2);
+}
 .cg-ftr1-widget .cta-widget h3 {
   color: #fff;
   font-size: 22px;
@@ -6027,9 +6109,7 @@ select:visited {
   line-height: 1;
   font-size: 170px;
   font-weight: 700;
-  background: linear-gradient(-186.07deg, #032532 -29.62%, rgba(255, 255, 255, 0.47) 81.95%, #032532 141.49%, #032532 219.52%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: rgba(255, 255, 255, 0.47);
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .cg-footer-bottom h3 {

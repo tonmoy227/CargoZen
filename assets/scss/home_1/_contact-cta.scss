@@ -1,3 +1,17 @@
+@keyframes zoomRotate {
+	0% {
+		transform: scale(1) rotate(0deg);
+	}
+	50% {
+		transform: scale(1.12) rotate(30deg);
+	}
+	75% {
+		transform: scale(1) rotate(-30deg);
+	}
+	100% {
+		transform: scale(1) rotate(0deg);
+	}
+}
 .cg-footer1-sec {
 	background-color: var(--cg-pr-c1);
 }
@@ -21,8 +35,10 @@
 	left: 0;
 	right: 0;
 	top: -25px;
+	z-index: 2;
 	margin: 0 auto;
 	position: absolute;
+	animation: zoomRotate 2s infinite ease-in-out;
 	@media #{$xs} {
 		position: static;
 	}
