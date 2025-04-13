@@ -1,0 +1,81 @@
+.cg-hero2-content {
+	overflow: hidden;
+	border-top: 1px solid #CCEEFF;
+	.cg-h2-img {
+		top: 0;
+		left: -15px;
+	}
+	.cg-h2-img2 {
+		top: 50px;
+		right: -160px;
+		opacity: 0.18;
+		transform: rotate(-40deg);
+	}
+}
+
+.cg-hero2-text {
+	.hero_slug {
+		font-size: 18px;
+		color: var(--cg-pr-c3);
+		font-family: var(--cg-font2);
+	}
+	.hero_title {
+		line-height: 1;
+		font-size: 110px;
+		font-weight: 700;
+		color: var(--cg-pr-c1);
+		span {
+			font-weight: 300;
+		}
+	}
+}
+.cg-hero2-img {
+	position: relative;
+	&:before {
+		top: 0;
+		right: -45px;
+		content: '';
+		height: 40px;
+		width: 100px;
+		position: absolute;
+		background-color: #DFF6FF;
+		transform: rotate(45deg);
+	}
+}
+.cg-item-scroll {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 260px;
+	height: 75px;
+	margin: 0 auto;
+	padding-top: 8px;
+	position: absolute;
+	background-color: #DFF6FF;
+	clip-path: polygon( 26.434% 51.236%,26.434% 51.236%,23.938% 60.717%,21.194% 69.088%,18.284% 76.376%,15.288% 82.606%,12.286% 87.806%,9.359% 92.002%,6.586% 95.219%,4.048% 97.485%,1.826% 98.825%,0% 99.265%,0% 99.265%,11.703% 99.31%,24.796% 99.424%,38.613% 99.578%,52.485% 99.741%,65.747% 99.885%,77.732% 99.979%,87.773% 99.994%,95.203% 99.9%,99.355% 99.667%,99.563% 99.265%,99.563% 99.265%,97.041% 98.455%,94.557% 97.186%,92.088% 95.299%,89.616% 92.632%,87.117% 89.024%,84.573% 84.314%,81.961% 78.341%,79.261% 70.945%,76.452% 61.963%,73.514% 51.236%,73.514% 51.236%,67.768% 29.152%,62.227% 13.738%,56.902% 4.334%,51.802% 0.278%,46.935% 0.91%,42.312% 5.567%,37.941% 13.59%,33.831% 24.316%,29.993% 37.085%,26.434% 51.236% );
+	.scroll-mouse {
+		width: 14px;
+		height: 22px;
+		margin: 0 auto;
+		position: relative;
+		margin-bottom: 3px;
+		border-radius: 20px;
+		border: 2px solid var(--cg-pr-c2);
+		&:before {
+			top: 2px;
+			left: 2px;
+			width: 5px;
+			content: '';
+			height: 5px;
+			position: absolute;
+			border-radius: 100%;
+			border: 2px solid var(--cg-pr-c2);
+		}
+	}
+	span {
+		font-size: 14px;
+		font-weight: 500;
+		color: var(--cg-pr-c1);
+		font-family: var(--cg-heading);
+	}
+}

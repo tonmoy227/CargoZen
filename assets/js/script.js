@@ -579,7 +579,7 @@ Last change:    00/00/00
 			scrollTrigger: {
 				trigger: el,
 				scrub: 1.5,
-				end: "top 10%",
+				end: "top -10%",
 				start: "top 80%",
 				toggleActions: "play none none reverse",
 				markers: false
@@ -588,7 +588,22 @@ Last change:    00/00/00
 
 		tlcta
 		.set(el, {transformOrigin: 'top top'})
-		.from(el, { opacity: 0, scaleY: 0,  y: "-20"}, {opacity: 1, y: 0, scaleY: 1, duration: 1, immediateRender: false})
+		.from(el, { y: "-200"}, {opacity: 1, y: 0, duration: 1, immediateRender: false})
+	});
+	gsap.utils.toArray(' .cg-pro1-content').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top -100%",
+				start: "top 40%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.from(el, {  marginLeft: "0px",  marginRight: "0px"})
 	});
 	$('.bi-btn-hover').on('mouseenter', function (e) {
 		var x = e.pageX - $(this).offset().left;
@@ -681,8 +696,8 @@ Last change:    00/00/00
 	});
 
 	cgmappin.from( ".cg-m-item1" , { rotateZ: -200,  duration:1 }, ">" )
-	cgmappin.from( ".cg-m-item2" , { rotateZ: 200,  duration:1 },"<" )
-	cgmappin.from( ".cg-m-item3" , { rotateZ: -200,  duration:1 } )
+	cgmappin.from( ".cg-m-item3" , { rotateZ: 100,  duration:1 },"<" )
+	cgmappin.from( ".cg-m-item2" , { rotateZ: -200,  duration:1 } )
 //
 	if(window.innerWidth> 991){
 		let proSroll = gsap.timeline();
@@ -741,10 +756,44 @@ Last change:    00/00/00
 				duration: 2,
 				stagger: .1,
 				ease: "bounce.out",
-					// yoyo: true, 
-					// repeat: -1,
 			});
 
 		});
 	}
+	var mWrap = $(".cg-cta-m-wrap");
+	mWrap.on("mouseover", function () {
+		var mContent = $(this).find("#more_content");
+		var mArea = $(this).find("#more_area");
+
+		function parallaxIt(e, target, movement = 1) {
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			var boundingRect = mArea[0].getBoundingClientRect();
+			var relX = e.pageX - boundingRect.left;
+			var relY = e.pageY - boundingRect.top;
+
+			gsap.to(mContent, {
+				x: (relX - boundingRect.width / 2) * movement,
+				y: (relY - boundingRect.height / 2 - scrollTop) * movement,
+				ease: "power1",
+				duration: 0.6
+			});
+		}
+
+		function callParallax(e) {
+			parallaxIt(e, mWrap);
+		}
+
+		mArea.mousemove(function (e) {
+			callParallax(e);
+		});
+		mArea.mouseleave(function (e) {
+			gsap.to(mContent, {
+				scale: 1,
+				x: 0,
+				y: 0,
+				ease: "power1",
+				duration: 0.6
+			});
+		});
+	});
 })(jQuery);
