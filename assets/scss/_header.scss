@@ -520,6 +520,9 @@
 		@media #{$md,$sm,$xs} {
 			margin-top: 0;
 		}
+		&:is(.txa_sticky) {
+			margin-top: 0;
+		}
 		.cg-header-top {
 			margin: 0 auto;
 			padding: 8px 10px;

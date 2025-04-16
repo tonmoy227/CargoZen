@@ -280,6 +280,12 @@ select:visited {
 		font-weight: 700;
 		letter-spacing: -1px;
 		color: var(--cg-title-color);
+		span {
+			color: var(--cg-pr-c2);
+		}
+		@media #{$lg} {
+			font-size: 48px;
+		}
 		@media #{$sm,$xs} {
 			font-size: 40px;
 		}

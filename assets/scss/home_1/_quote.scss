@@ -158,6 +158,52 @@
 			background-color: var(--cg-pr-c3);
 		}
 	}
+	&:is(.ver_2) {
+		padding: 0;
+		max-width: 695px;
+		clip-path: none;
+		@media #{$lg} {
+			max-width: 550px;
+		}
+		label { 
+			font-size: 15px;
+			color: var(--cg-title-color);
+		}
+		input,select { 
+			height: 45px;
+			border-radius: 5px;
+			background-color: #F1F3F4;
+			color: var(--cg-title-color);
+			&::placeholder {
+				font-weight: 500;
+				color: var(--cg-title-color);
+			}
+		}
+		button {
+			color: #fff;
+			padding: 20px 15px;
+			background-color: var(--cg-pr-c1);
+			transition: all 500ms ease-in-out;
+			&:hover {
+				background-color: var(--cg-pr-c2);
+			}
+		}
+		.qt-select-option {
+			&:before {
+				top: 11px;
+				color: var(--cg-title-color);
+			}
+		}
+		.cg-product-mesurment-checkbox label .slug {
+			color: var(--cg-title-color);
+		}
+		.cg-product-mesurment-checkbox .checkmark-circle:before {
+			border: 1px solid var(--cg-title-color);
+		}
+		.cg-product-mesurment-checkbox label {
+			margin-right: 5px;
+		}
+	}
 }
 .cg-product-mesurment-checkbox {
 	gap: 15px;
@@ -173,6 +219,7 @@
 .cg-product-mesurment-checkbox label .slug {
 	color: #fff;
 	margin-left: 30px;
+	white-space: nowrap;
 }
 .cg-product-mesurment-checkbox .checkmark-circle:before {
 	content: "";

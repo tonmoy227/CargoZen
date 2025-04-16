@@ -16,7 +16,7 @@ Last change:    00/00/00
 
 // lenis-smooth-scroll
 	const lenis = new Lenis({
-		duration: .9, 
+		duration: 1.5, 
 		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
 		direction: 'vertical', 
 		smooth: true, 
@@ -51,7 +51,7 @@ Last change:    00/00/00
 		var $window = $(window);
 		var lastScrollTop = 0;
 		var $header = $('.txa_sticky_header');
-		var headerHeight = $header.outerHeight() + 30;
+		var headerHeight = $header.outerHeight() - 30;
 
 		$window.scroll(function () {
 			var windowTop = $window.scrollTop();
@@ -185,6 +185,11 @@ Last change:    00/00/00
 		ltn__active_item_1.removeClass('active');
 		$(this).addClass('active');
 	});
+	var ltn__active_item_1 = $('.cg-why-c-list')
+	ltn__active_item_1.mouseover(function() {
+		ltn__active_item_1.removeClass('active');
+		$(this).addClass('active');
+	});
 	if($('.cg-split-1').length) {
 		var txtSplit = $('.cg-split-1');
 		if(txtSplit.length == 0) return; gsap.registerPlugin(SplitText); txtSplit.each(function(index, el) {
@@ -198,6 +203,9 @@ Last change:    00/00/00
 	$('.counter').counterUp({
 		delay: 10,
 		time: 5000
+	});
+	$('#team2tab .nav-link').hover(function() {
+		$(this).tab('show');
 	});
 	// windows-loaded-before-functions
 	document.addEventListener("DOMContentLoaded", function () {
@@ -339,6 +347,63 @@ Last change:    00/00/00
 		})
 	}
 
+	// Project Slider		
+	if($(".cg-project2-slider").length) {
+		const swiper = new Swiper(".cg-project2-slider" , {
+			speed: 500,
+			loop: true,
+			spaceBetween: 0,
+			autoplay:  {
+				delay: 5000,
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+				},
+				576: {
+					slidesPerView: 1,
+				},
+				768: {
+					slidesPerView: 2,
+				},
+				992: {
+					slidesPerView: 2,
+				},
+				1024: {
+					slidesPerView: 2,
+				},
+				1199: {
+					slidesPerView: 3,
+				},
+				1400: {
+					slidesPerView: 3,
+				},
+				1600: {
+					slidesPerView: 4,
+				},
+				1800: {
+					slidesPerView: 4,
+				},
+			},
+		})
+	}	
+	// Testimonial Slider		
+	if($(".cg-testi2-slider").length) {
+		const swiper = new Swiper(".cg-testi2-slider" , {
+			speed: 500,
+			loop: true,
+			spaceBetween: 0,
+			effect: "fade",
+			fadeEffect: {
+				crossFade: true
+			},
+			slidesPerView: 1,
+			navigation: {
+				nextEl: ".cg-testi2-next",
+				prevEl: ".cg-testi2-prev",
+			},
+		})
+	}	
 	if($('.cg-sub-tilte').length) {
 		var agtsub = $(".cg-sub-tilte");
 
@@ -401,7 +466,7 @@ Last change:    00/00/00
 				y: "0",
 				opacity: 1,
 				duration: .4,
-				stagger: 0.15,
+				stagger: 0.2,
 			});
 
 

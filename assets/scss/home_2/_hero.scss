@@ -1,6 +1,15 @@
+.cg-hero2-sec {
+	@media #{$md,$sm,$xs} {
+		padding-top: 80px;
+	}
+	
+}
 .cg-hero2-content {
 	overflow: hidden;
 	border-top: 1px solid #CCEEFF;
+	@media #{$xxs} {
+		padding-top: 50px;
+	}
 	.cg-h2-img {
 		top: 0;
 		left: -15px;
@@ -11,26 +20,78 @@
 		opacity: 0.18;
 		transform: rotate(-40deg);
 	}
-}
 
+}
+.cg-hero2-text-wrap {
+	gap: 20px;
+	@media #{$xxs} {
+		padding-bottom: 40px;
+	}
+}
 .cg-hero2-text {
 	.hero_slug {
 		font-size: 18px;
 		color: var(--cg-pr-c3);
 		font-family: var(--cg-font2);
+		@media #{$xxs} {
+			font-size: 16px;
+		}
 	}
 	.hero_title {
 		line-height: 1;
 		font-size: 110px;
 		font-weight: 700;
 		color: var(--cg-pr-c1);
+		@media #{$xl} {
+			font-size: 90px;
+		}
+		@media #{$lg} {
+			font-size: 70px;
+		}
+		@media #{$md,$sm} {
+			font-size: 60px;
+		}
+		@media #{$xs} {
+			font-size: 50px;
+		}
+		@media #{$xxs} {
+			font-size: 40px;
+		}
+		@media #{$xxxs} {
+			font-size: 36px;
+		}
 		span {
 			font-weight: 300;
 		}
 	}
 }
 .cg-hero2-img {
+	height: 100%;
+	max-height: 605px;
 	position: relative;
+	@media #{$xl,$lg} {
+		height: 500px;
+	}
+	@media #{$md,$sm,$xs} {
+		height: auto;
+		max-height: 100%;
+		padding: 50px 0px;
+	}
+	.item-img {
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		@media #{$md,$sm,$xs} {
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 	&:before {
 		top: 0;
 		right: -45px;
@@ -45,7 +106,7 @@
 .cg-item-scroll {
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: -5px;
 	width: 260px;
 	height: 75px;
 	margin: 0 auto;
@@ -53,8 +114,11 @@
 	position: absolute;
 	background-color: #DFF6FF;
 	clip-path: polygon( 26.434% 51.236%,26.434% 51.236%,23.938% 60.717%,21.194% 69.088%,18.284% 76.376%,15.288% 82.606%,12.286% 87.806%,9.359% 92.002%,6.586% 95.219%,4.048% 97.485%,1.826% 98.825%,0% 99.265%,0% 99.265%,11.703% 99.31%,24.796% 99.424%,38.613% 99.578%,52.485% 99.741%,65.747% 99.885%,77.732% 99.979%,87.773% 99.994%,95.203% 99.9%,99.355% 99.667%,99.563% 99.265%,99.563% 99.265%,97.041% 98.455%,94.557% 97.186%,92.088% 95.299%,89.616% 92.632%,87.117% 89.024%,84.573% 84.314%,81.961% 78.341%,79.261% 70.945%,76.452% 61.963%,73.514% 51.236%,73.514% 51.236%,67.768% 29.152%,62.227% 13.738%,56.902% 4.334%,51.802% 0.278%,46.935% 0.91%,42.312% 5.567%,37.941% 13.59%,33.831% 24.316%,29.993% 37.085%,26.434% 51.236% );
+	@media #{$lg,$md,$sm,$xs} {
+		display: none !important;
+	}
 	.scroll-mouse {
-		width: 14px;
+		width: 15px;
 		height: 22px;
 		margin: 0 auto;
 		position: relative;
@@ -63,7 +127,7 @@
 		border: 2px solid var(--cg-pr-c2);
 		&:before {
 			top: 2px;
-			left: 2px;
+			left: 3px;
 			width: 5px;
 			content: '';
 			height: 5px;
@@ -77,5 +141,169 @@
 		font-weight: 500;
 		color: var(--cg-pr-c1);
 		font-family: var(--cg-heading);
+	}
+}
+.cg-hr2-globe {
+	left: 0;
+	gap: 10px;
+	bottom: 0;
+	position: absolute;
+	@media #{$md,$sm,$xs} {
+		position: static;
+		margin-bottom: 30px;
+	}
+	@media #{$xxs} {
+		flex-wrap: wrap;
+	}
+	.globe-img {
+		width: 140px;
+		padding: 5px;
+		height: 130px;
+		border-radius: 8px;
+		background-color: var(--cg-pr-c3);
+		@media #{$xxs} {
+			width: 100px;
+			height: 90px;
+		}
+	}
+	.item-text {
+		padding: 30px 35px;
+		border-radius: 8px;
+		background-color: #fff;
+		@media #{$xxs} {
+			padding: 20px 20px 15px;
+		}
+		h3 {
+			display: flex;
+			font-size: 43px;
+			font-weight: 700;
+			align-items: center;
+			color: var(--cg-pr-c1);
+			justify-content: center;
+			@media #{$xxs} {
+				font-size: 30px;
+			}
+		}
+		span {
+			font-size: 20px;
+			font-weight: 700;
+			margin-left: 8px;
+			color: var(--cg-pr-c1);
+		}
+		p {
+			font-weight: 500;
+			color: var(--cg-pr-c1);
+			font-family: var(--cg-heading);
+		}
+	}
+}
+.cg-hr2-track-form {
+	right: 0;
+	bottom: 0;
+	width: 440px;
+	position: absolute;
+	background: #FFFFFF4F;
+	padding: 50px 40px 40px;
+	backdrop-filter: blur(27px);
+	clip-path: polygon(92.648% 0.755%, 92.648% 0.755%, 92.526% 0.616%, 92.396% 0.491%, 92.259% 0.379%, 92.116% 0.28%, 91.968% 0.196%, 91.814% 0.126%, 91.657% 0.072%, 91.496% 0.032%, 91.332% 0.008%, 91.166% 0%, 2.105% 0%, 2.105% 0%, 1.764% 0.034%, 1.44% 0.133%, 1.138% 0.291%, 0.862% 0.503%, 0.617% 0.763%, 0.406% 1.067%, 0.235% 1.408%, 0.107% 1.782%, 0.028% 2.183%, 0% 2.606%, 0% 97.394%, 0% 97.394%, 0.028% 97.817%, 0.107% 98.218%, 0.235% 98.592%, 0.406% 98.933%, 0.617% 99.237%, 0.862% 99.497%, 1.138% 99.709%, 1.44% 99.867%, 1.764% 99.966%, 2.105% 100%, 97.895% 100%, 97.895% 100%, 98.236% 99.966%, 98.56% 99.867%, 98.862% 99.709%, 99.138% 99.497%, 99.383% 99.237%, 99.594% 98.933%, 99.765% 98.592%, 99.893% 98.218%, 99.972% 97.817%, 100% 97.394%, 100% 10.859%, 100% 10.859%, 99.993% 10.652%, 99.973% 10.447%, 99.941% 10.246%, 99.895% 10.049%, 99.838% 9.857%, 99.768% 9.671%, 99.687% 9.493%, 99.595% 9.322%, 99.491% 9.161%, 99.377% 9.009%, 92.648% 0.755%);
+	@media #{$md,$sm,$xs} {
+		position: static;
+	}
+	@media #{$xxs} {
+		max-width: 100%;
+		padding: 30px 15px 20px;
+	}
+	h3 {
+		font-size: 20px;
+		font-weight: 700;
+		padding-bottom: 26px;
+		color: var(--cg-pr-c1);
+	}
+}
+.cg-track-form-field {
+	margin-bottom: 15px;
+	form {
+		position: relative;
+	}
+	input {
+		width: 100%;
+		height: 60px;
+		border: none;
+		border-radius: 8px;
+		padding-left: 18px;
+		background-color: #F4F4F4;
+		&::placeholder {
+			@media #{$xxs} {
+				font-size: 14px;
+			}
+		}
+	}
+	button {
+		top: 7px;
+		right: 7px;
+		border: none;
+		font-weight: 600;
+		padding: 10px 30px;
+		border-radius: 7px;
+		position: absolute;
+		color: var(--cg-pr-c1);
+		background-color: transparent;
+		font-family: var(--cg-heading);
+		background-color: var(--cg-pr-c3);
+		@media #{$xxs} {
+			padding: 10px 15px;
+		}
+	}
+}
+.track-form-btn {
+	background-color: #fff;
+	padding: 10px 10px 20px;
+	ul {
+		gap: 20px;
+		display: flex  !important;
+		justify-content: space-between;
+	}
+	.nav-link {
+		padding-left: 0;
+		padding-bottom: 0;
+	}
+	.nav-link.active {
+		.track-btn {
+			&:before {
+				background-color: #f8ba00;
+			}
+			.item-icon {
+				animation: icon-bounce 1s ease-out infinite;
+			}
+		}
+	}
+	.track-btn {
+		width: 60px;
+		height: 90px;
+		padding-top: 18px;
+		position: relative;
+		&:before {
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 5px;
+			content: '';
+			position: absolute;
+			background-color: #dfdfdf;
+			transition: all 500ms ease-in-out;
+		}
+		.item-icon {
+			width: 30px;
+			height: 30px;
+			margin: 0 auto;
+			margin-bottom: 5px;
+		}
+		.item-text {
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 1.2;
+			text-align: center;
+			color: var(--cg-pr-c1);
+		}
 	}
 }

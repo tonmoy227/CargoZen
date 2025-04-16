@@ -1,0 +1,30 @@
+.cg-package1-content {
+	gap: 30px 40px;
+	.cg-sec-title {
+		max-width: 830px
+	}
+}
+
+.cg-package1-counter {
+	h3 {
+		line-height: 1;
+		font-size: 66px;
+		font-weight: 700;
+		color: var(--cg-pr-c2);
+		margin-bottom: 10px;
+		@media #{$md,$sm,$xs} {
+			font-size: 55px;
+		}
+		@media #{$xxs} {
+			font-size: 45px;
+		}
+		span {
+			color: var(--cg-pr-c1);
+		}
+	}
+	p {
+		font-size: 22px;
+		font-weight: 700;
+		color: var(--cg-pr-c2);
+	}
+}

@@ -1,0 +1,136 @@
+.cg-faq1-content {
+	gap: 30px 40px;
+	justify-content: space-between;
+	@media #{$md,$sm,$xs} {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+.cg-faq1-img-area {
+	width: 100%;
+	max-width: 518px;
+	@media #{$md,$sm,$xs} {
+		max-width: 100%;
+	}
+	.item-img {
+		position: relative;
+		margin-bottom: -180px;
+		&:before {
+			top: 0;
+			left: 0;
+			width: 100%;
+			content: '';
+			height: 270px;
+			position: absolute;
+			background: linear-gradient(179.83deg, #DFF6FF 13.15%, rgba(237, 250, 255, 0) 99.85%);
+		}
+	}
+}
+.faq1-list-item {
+	padding: 30px;
+	border-radius: 7px;
+	backdrop-filter: blur(15px);
+	background: rgba(255, 255, 255, 0.58);
+	@media #{$xxs} {
+		padding: 30px 15px;
+	}
+	li {
+		font-weight: 600;
+		padding: 10px 20px;
+		display: flex !important;
+		color: var(--cg-title-color);
+		justify-content: space-between;
+		border-bottom: 1px solid #151313;
+		@media #{$xxs} {
+			padding: 10px 0px;
+		}
+		&:last-child {
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
+}
+.cg-faq-accordion {
+	width: 100%;
+	max-width: 660px;
+	margin-top: 48px;
+	@media #{$md,$xs} {
+		max-width: 100%;
+	}
+	&.ver_2 {
+		margin: 0 auto;
+		max-width: 840px;
+		.accordion-button {
+			font-size: 18px;
+		}
+	}
+	.accordion-item,
+	.accordion-button:not(.collapsed),
+	.accordion-button {
+		background-color: transparent;
+		box-shadow: none;
+	}
+	.accordion-item {
+		border:  none;
+		border-radius: 0;
+		padding-left: 15px;
+		position: relative;		
+	}
+	.accordion-button {
+		padding: 0;
+		opacity: .5;
+		border: none;
+		font-size: 28px;
+		font-weight: 700;
+		position: relative;
+		padding: 20px 0px 22px 60px;
+		transition: all 500ms ease;
+		color: var(--cg-title-color);
+		@media #{$xxs} {
+			font-size: 22px;
+			padding: 20px 0px 22px 40px;
+		}
+		span {
+			display: flex;
+			max-width: 85%;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	.accordion-button:focus {
+		border: none;
+		box-shadow: none;
+	}
+	.accordion-body {
+		padding: 0;
+		color: #807E8D;
+		font-size: 18px;
+		font-weight: 500;
+		padding-bottom: 15px;
+	}
+	.accordion-button::after {
+		top: 20px;
+		left: 0px;
+		width: 32px;
+		height: 32px;
+		display: flex;
+		content: '\f067';
+		font-weight: 900;
+		position: absolute;
+		align-items: center;
+		border-radius: 100%;
+		background-image: none;
+		justify-content: center;
+		font-family: 'Font Awesome 5 Free';
+		@media #{$xxs} {
+			top: 15px;
+		}
+	}
+	.accordion-button:not(.collapsed) { 
+		opacity: 1;
+		color: var(--cg-title-color);
+		&:after {
+			content: '\f068';
+		}
+	}
+}

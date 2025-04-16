@@ -199,10 +199,34 @@
 }
 .cg-text-scroller2 {
 	display: flow-root;
+	&:is(.ver_2) {
+		overflow: hidden;
+		padding: 20px 0px;
+		background-color: var(--cg-pr-c2);
+		h3 {
+			font-size: 74px;
+			font-weight: 700;
+			@media #{$xs} {
+				font-size: 60px;
+			}
+			@media #{$xxs} {
+				font-size: 50px;
+			}
+			&:is(.txt_1) {
+				-webkit-text-fill-color: transparent; 
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: #00000061;
+			}
+			&:is(.txt_2) {
+				color: #fff;
+			}
+		}
+	}
 	h3 {
 		line-height: 1;
 		font-size: 110px;
 		font-weight: 700;
+		margin: 0px 15px;
 		display: inline-block;
 		color: var(--cg-pr-c1);
 		font-family: var(--cg-body-font);
