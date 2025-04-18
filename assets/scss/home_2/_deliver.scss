@@ -1,4 +1,4 @@
-.cg-deliver-sec {
+.cg-deliver-wrap {
 	z-index: 1;
 	padding-top: 125px;
 	padding-bottom: 205px;
@@ -22,6 +22,7 @@
 		&:before {
 			top: 0;
 			left: 0;
+			z-index: 1;
 			width: 100%;
 			content: '';
 			height: 100%;

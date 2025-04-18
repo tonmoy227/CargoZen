@@ -1,3 +1,25 @@
+@keyframes hithere {
+	30% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+	40%, 60% {
+		-webkit-transform: rotate(-10deg) scale(1.1);
+		transform: rotate(-10deg) scale(1.1);
+	}
+	50% {
+		-webkit-transform: rotate(10deg) scale(1.1);
+		transform: rotate(10deg) scale(1.1);
+	}
+	70% {
+		-webkit-transform: rotate(0deg) scale(1.1);
+		transform: rotate(0deg) scale(1.1);
+	}
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
 .cg-sponsor-content-1,
 .cg-sponsor-content-2 {
 	overflow: hidden;
@@ -14,6 +36,7 @@
 }
 .cg-sp-item1 {
 	width: 100%;
+	cursor: pointer;
 	max-width: 242px;
 	padding: 70px 20px;
 	margin-right: -2px;
@@ -33,5 +56,10 @@
 		max-width: 242px;
 		align-items: center;
 		justify-content: center;
+	}
+	&:hover {
+		.item-img {
+			animation: hithere 1s ease infinite;
+		}
 	}
 }

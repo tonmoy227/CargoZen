@@ -16,7 +16,7 @@ Last change:    00/00/00
 
 // lenis-smooth-scroll
 	const lenis = new Lenis({
-		duration: 1.5, 
+		duration: 1.3, 
 		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
 		direction: 'vertical', 
 		smooth: true, 
@@ -77,12 +77,12 @@ Last change:    00/00/00
 	TXTheaderSticky();
 	$(window).on("scroll", function() {
 		if ($(this).scrollTop() > 200) {
-			$('.ed-scrollup').fadeIn();
+			$('.cg-scrollup').fadeIn();
 		} else {
-			$('.ed-scrollup').fadeOut();
+			$('.cg-scrollup').fadeOut();
 		}
 	});
-	$('.ed-scrollup').on("click", function()  {
+	$('.cg-scrollup').on("click", function()  {
 		$("html, body").animate({
 			scrollTop: 0
 		}, 800);
@@ -180,10 +180,14 @@ Last change:    00/00/00
 		ltn__active_item.removeClass('active');
 		$(this).addClass('active');
 	});
-	var ltn__active_item_1 = $('.item-pin-wrap')
-	ltn__active_item_1.mouseover(function() {
-		ltn__active_item_1.removeClass('active');
-		$(this).addClass('active');
+	$('.item-pin-group').each(function () {
+		var group = $(this);
+		var items = group.find('.item-pin-wrap');
+
+		items.mouseover(function () {
+			items.removeClass('active');
+			$(this).addClass('active');
+		});
 	});
 	var ltn__active_item_1 = $('.cg-why-c-list')
 	ltn__active_item_1.mouseover(function() {
@@ -263,6 +267,50 @@ Last change:    00/00/00
 						thumbs: {
 							swiper: swiper3,
 						},
+
+					});
+				}
+				const Cgh2 = gsap.timeline();
+				Cgh2
+				.from(".cg-hero2-img .item-img img", {  scale: 3, yPercent: 10, xPercent: -10, duration: 6, transformOrigin: "top",   ease: "power2.inOut" },"<=-3.5")
+				.from(".cg-hero2-text .hero_slug", {  scale: 1, x: 300, opacity: 0, borderRadius: 0, duration: 1.5,  ease: "power2.inOut" },"<=4.5")
+				.from(".cg-hero2-content .cg-h2-img", {  scale: 1, yPercent: -100, opacity: 0, borderRadius: 0, duration: 2.5,  ease: "power2.inOut" }, "<=.2")
+				.from(".cg-hero2-text-wrap .cg-btn-1", {  scale: 1, yPercent: -100, opacity: 0, borderRadius: 0, duration: 1,  ease: "bounce.out" }, "<=.7")
+				.from(".cg-hero2-content .cg-h2-img2", {  scale: 1, yPercent: -200, xPercent: 50, rotate: "-90deg", opacity: 0, borderRadius: 0, duration: 8,  ease: "elastic.out(1,0.3)" },"<=-1");
+				if($(".cg-hero-txt2").length) {
+					var AGTTitleAni = $(".cg-hero-txt2");
+					if(AGTTitleAni.length == 0) return; gsap.registerPlugin(SplitText); AGTTitleAni.each(function(index, el) {
+
+						el.split = new SplitText(el, { 
+							type: "lines,words,chars",
+							linesClass: "split-line"
+						});
+
+						gsap.set(el, { perspective: 400 });
+
+						if( $(el).hasClass('hero_title') ){
+							gsap.set(el.split.chars, {
+								y: -100,
+								opacity: 0,
+							});
+						}
+						el.anim = gsap.to(el.split.chars, {
+							scrollTrigger: {
+								trigger: el,
+								start: "top 90%",
+								end: "top -100%",
+								toggleActions: "play reverse play reverse",
+								markers: false,
+							},
+							x: 0,
+							y: 0,
+							scaleX: 1,
+							opacity: 1,
+							duration: 1,
+							stagger: .1,
+							delay: .1,
+							ease: "bounce.out",
+						});
 
 					});
 				}
@@ -607,6 +655,22 @@ Last change:    00/00/00
 		.set(el, {transformOrigin: 'center center'})
 		.from(el, { opacity: 0, scale: 0, rotate: "90deg", x: "-300"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
 	});
+	gsap.utils.toArray(' .plane_land_3').forEach((el, index) => { 
+		let tlcta = gsap.timeline({
+			scrollTrigger: {
+				trigger: el,
+				scrub: 1.5,
+				end: "top 20%",
+				start: "top 100%",
+				toggleActions: "play none none reverse",
+				markers: false
+			}
+		})
+
+		tlcta
+		.set(el, {transformOrigin: 'center center'})
+		.from(el, { opacity: 0, scale: 0, y:-150, rotate: "-120deg", x: "300"}, {opacity: 1, y: 0, rotate: "0", duration: 1, immediateRender: false})
+	});
 	gsap.utils.toArray(' .ship_land').forEach((el, index) => { 
 		let tlcta = gsap.timeline({
 			scrollTrigger: {
@@ -764,6 +828,22 @@ Last change:    00/00/00
 	cgmappin.from( ".cg-m-item3" , { rotateZ: 100,  duration:1 },"<" )
 	cgmappin.from( ".cg-m-item2" , { rotateZ: -200,  duration:1 } )
 //
+
+	if (window.matchMedia("(min-width: 1200px)").matches) { 
+		var Hero_pin = document.querySelectorAll(".cg-deliver-sec")
+		Hero_pin.forEach((item) => {
+			gsap.to(item, {
+				scrollTrigger: {
+					trigger: item,
+					markers: false,
+					pin: true,
+					pinSpacing: false,
+					start: "top 0%",
+					end: "bottom 0%",
+				},
+			});
+		});
+	}
 	if(window.innerWidth> 991){
 		let proSroll = gsap.timeline();
 		let otherSections_2 = document.querySelectorAll('.cg_sticky_item')
@@ -805,7 +885,20 @@ Last change:    00/00/00
 
 				});
 			}
+			if( $(el).hasClass('bottom-text_2') ){
+				gsap.set(el.split.chars, {
+					yPercent: 100,
+					opacity: 0,
 
+				});
+			}
+			if( $(el).hasClass('bottom-text_3') ){
+				gsap.set(el.split.chars, {
+					yPercent: -100,
+					opacity: 0,
+
+				});
+			}
 			el.anim = gsap.to(el.split.chars, {
 				scrollTrigger: {
 					trigger: el,
