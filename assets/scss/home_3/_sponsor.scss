@@ -1,0 +1,19 @@
+.cg-sponsor3-content {
+	h3 {
+		font-size: 24px;
+		font-weight: 700;
+		color: var(--cg-pr-c1);
+	}
+}
+
+.cg-spon3-item {
+	padding: 40px 70px;
+	display: inline-block;
+	border-right: 1px solid #D9E4E8;
+	.item-img {
+		height: 35px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

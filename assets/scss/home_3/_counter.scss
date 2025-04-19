@@ -1,0 +1,26 @@
+.cg-counter3-content {
+	gap: 30px 80px;
+	@media #{$xl,$lg,$md,$sm,$xs} {
+		gap: 30px 40px;
+	}
+	@media #{$lg,$md,$sm,$xs} {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.cg-sec-title {
+		max-width: 475px;
+		@media #{$lg,$md,$sm,$xs} {
+			text-align: center;
+		}
+	}
+}
+.cg-counter1-content {
+	&:is(.ver_2) {
+		margin: 0;
+		width: 100%;
+		max-width: 828px;
+		@media #{$xl} {
+			max-width: 660px;
+		}
+	}
+}

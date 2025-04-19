@@ -31,6 +31,9 @@ body {
 .home-2 {
 	background-color: #DFF6FF;
 }
+.home-3 {
+	background-color: #EDFAFF;
+}
 .headline h1,
 .headline h2,
 .headline h3,
@@ -42,7 +45,10 @@ body {
 	margin-bottom: 0;
 	font-family: var(--cg-heading);
 }
-
+.marquee-right,
+.marquee-left {
+	display: flow-root;
+}
 /*Reset  area*/
 /*-------------------------*/
 .ul-li ul {

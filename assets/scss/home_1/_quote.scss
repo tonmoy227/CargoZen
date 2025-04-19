@@ -204,6 +204,37 @@
 			margin-right: 5px;
 		}
 	}
+	&:is(.ver_3) {
+		background-color: #9FDBF5;
+		@media #{$lg} {
+			max-width: 400px;
+			padding: 30px 20px;
+		}
+		h3, 
+		label {
+			color: var(--cg-pr-c1);
+		}
+		input,select { 
+			height: 45px;
+			border-radius: 5px;
+			background-color: transparent;
+			color: var(--cg-title-color);
+			border: 1px solid var(--cg-pr-c1);
+			&::placeholder {
+				font-weight: 500;
+				color: var(--cg-title-color);
+			}
+		}
+		.qt-select-option:before { 
+			color: var(--cg-title-color);
+		}
+		.cg-product-mesurment-checkbox .checkmark-circle:before {
+			border: 1px solid var(--cg-pr-c1);
+		}
+		.cg-product-mesurment-checkbox label .slug {
+			color: var(--cg-pr-c1);
+		}
+	}
 }
 .cg-product-mesurment-checkbox {
 	gap: 15px;

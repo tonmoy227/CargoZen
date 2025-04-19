@@ -1,8 +1,58 @@
+@keyframes an-smoke-2 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(0)rotate(.01deg);
+		-moz-transform: translateY(0)rotate(.01deg);
+		-o-transform: translateY(0)rotate(.01deg);
+		transform: translateY(0)rotate(.01deg)
+	}
+
+	50% {
+		opacity: 1
+	}
+
+	to {
+		opacity: 0;
+		-webkit-transform: translate(10%,0%)rotate(.01deg);
+		-moz-transform: translate(10%,0%)rotate(.01deg);
+		-o-transform: translate(10%,0%)rotate(.01deg);
+		transform: translate(10%,0%)rotate(.01deg)
+	}
+}
+@keyframes flying {
+	0% {
+		-webkit-transform: translate(10px, 10px);
+		transform: translate(10px, 10px);
+	}
+	50% {
+		-webkit-transform: translate(-10px, -10px);
+		transform: translate(-10px, -10px);
+	}
+	100% {
+		-webkit-transform: translate(10px, 10px);
+		transform: translate(10px, 10px);
+	}
+}
 .cg-hero3-content {
 	z-index: 1;
 	margin-top: 50px;
+	overflow: hidden;
 	padding-top: 260px;
 	padding-bottom: 418px;
+	@media #{$md,$sm} {
+		margin-top: 0;
+		padding-top: 250px;
+		padding-bottom: 300px;
+	}
+	@media #{$xs} {
+		margin-top: 0;
+		padding-top: 220px;
+		padding-bottom: 200px;
+	}
+	@media #{$xxs} {
+		padding-top: 180px;
+		padding-bottom: 150px;
+	}
 	&:before {
 		left: 0;
 		bottom: 0;
@@ -12,6 +62,38 @@
 		position: absolute;
 		background-color: #EDFAFF;
 	}
+	.hr2-plane {
+		top: 205px;
+		opacity: .3;
+		left: -95px;
+	}
+	.cg-hero3-corner {
+		bottom: 85px;
+		width: 100%;
+		height: 45px;
+		&:before {
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 0;
+			content: '';
+			position: absolute;
+			border-top: 50px solid transparent;
+			border-left: 100px solid #EDFAFF;
+			border-bottom: 50px solid transparent;
+		}
+		&:after {
+			top: 0;
+			right: 0;
+			width: 0;
+			height: 0;
+			content: '';
+			position: absolute;
+			border-top: 50px solid transparent;
+			border-right: 100px solid #EDFAFF;
+			border-bottom: 50px solid transparent;
+		}
+	}
 }
 .cg-hr3-plane {
 	left: 0;
@@ -19,11 +101,25 @@
 	bottom: 0;
 	margin: 0 auto;
 	position: absolute;
+	animation: flying 2.5s linear infinite;
+	@media #{$xxs} {
+		bottom: 35px;
+	}
+
 }
-.cg-hero3-shape {
+.cg-hero3-shape1,
+.cg-hero3-shape2 {
 	right: 0;
+	opacity: 0;
 	z-index: -1;
 	bottom: 85px;
+	animation: an-smoke-2 6s ease-in-out infinite;
+}
+.cg-hero3-shape1 {
+	animation-delay: 2s;
+}
+.cg-hero3-shape2 {
+	animation-delay: 4s;
 }
 .cg-hero3-text {
 	margin: 0 auto;
@@ -33,12 +129,27 @@
 		margin-bottom: 10px;
 		color: var(--cg-pr-c3);
 		font-family: var(--cg-font2);
+		@media #{$xxs} {
+			font-size: 18px;
+		}
 	}
 	.hr3-title {
 		color: #EDFAFF;
 		font-size: 80px;
 		font-weight: 700;
 		margin-bottom: 22px;
+		@media #{$md} {
+			font-size: 60px;
+		}
+		@media #{$xs} {
+			font-size: 50px;
+		}
+		@media #{$xxs} {
+			font-size: 40px;
+		}
+		@media #{$xxxs} {
+			font-size: 36px;
+		}
 	}
 	p {
 		color: #fff;
@@ -47,6 +158,9 @@
 		font-weight: 500;
 		max-width: 620px;
 		padding-bottom: 30px;
+		@media #{$xxs} {
+			font-size: 16px;
+		}
 	}
 	.cg-btn-1 {
 		a {

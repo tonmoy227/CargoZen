@@ -451,6 +451,46 @@ Last change:    00/00/00
 				prevEl: ".cg-testi2-prev",
 			},
 		})
+	}
+	// Service Skider
+	if($(".cg-service3-slider").length) {
+		var swiper3 = new Swiper(".cg-service3-slider", {
+			speed: 1000,
+			loop: true,
+			spaceBetween: 25,
+			centeredSlides: true,
+			// autoplay:  {
+			// 	delay: 5000,
+			// },
+			navigation: {
+				nextEl: ".cg-ser3-next",
+				prevEl: ".cg-ser3-prev",
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+				},
+				576: {
+					slidesPerView: 1,
+				},
+				768: {
+					slidesPerView: 1,
+				},
+				992: {
+					slidesPerView: 1,
+				},
+				1200: {
+					slidesPerView: 3,
+				},
+				1300: {
+					slidesPerView: 3,
+				},
+				1600: {
+					slidesPerView: 3,
+				},
+			},
+
+		});
 	}	
 	if($('.cg-sub-tilte').length) {
 		var agtsub = $(".cg-sub-tilte");
